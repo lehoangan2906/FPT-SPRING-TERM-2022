@@ -14,7 +14,7 @@ public class Menu {
 			Matrix A = new Matrix(), B = new Matrix();
 
 			switch(choice){
-				
+				/*
 				case 1:
 					System.out.println("\n-------- Matrix Addition --------");
 					System.out.println("\n Enter dimensions of matrix A: ");
@@ -34,16 +34,16 @@ public class Menu {
 					System.out.println(" = ");
 					Matrix.addMatrix(A, B).DisplayMatrix();
 					break;
-				/*
+				*/
 				case 1:
 					System.out.println("\n-------- Matrix Addition --------");
-					rowA=Utilities.inputInt("Enter Row Matrix 1:",1,Integer.MAX_VALUE);
-                    colA=Utilities.inputInt("Enter Column Matrix 1:",1,Integer.MAX_VALUE);
+					rowA=Utilities.inputInt("Enter Row Matrix 1: ",1,Integer.MAX_VALUE);
+                    colA=Utilities.inputInt("Enter Column Matrix 1: ",1,Integer.MAX_VALUE);
                     
                     do
                     {      
-                        rowB=Utilities.inputInt("Enter Row Matrix 2:",1,Integer.MAX_VALUE);
-                        colB=Utilities.inputInt("Enter Column Matrix 2:",1,Integer.MAX_VALUE);  
+                        rowB=Utilities.inputInt("Enter Row Matrix 2: ",1,Integer.MAX_VALUE);
+                        colB=Utilities.inputInt("Enter Column Matrix 2: ",1,Integer.MAX_VALUE);  
                         if( rowA!=rowB || colA!=colB )
                             System.out.println("Invalid matrix size for operator! Please re-enter!");
                         else
@@ -55,38 +55,45 @@ public class Menu {
                     }
                     while(true);
                     
-                    ///Calc
+                    System.out.println("=======Result=======");
+                    A.DisplayMatrix();
+                    System.out.println("+");
+                    B.DisplayMatrix();
+                    System.out.println("=");
+                    Matrix.addMatrix(A, B).DisplayMatrix();
+                    break;
+					
+					
+				case 2:
+					System.out.println("\n-------- Matrix Subtraction --------");
+					rowA=Utilities.inputInt("Enter Row Matrix 1: ",1,Integer.MAX_VALUE);
+                    colA=Utilities.inputInt("Enter Column Matrix 1: ",1,Integer.MAX_VALUE);
+                    
+                    do
+                    {      
+                        rowB=Utilities.inputInt("Enter Row Matrix 2: ",1,Integer.MAX_VALUE);
+                        colB=Utilities.inputInt("Enter Column Matrix 2: ",1,Integer.MAX_VALUE);  
+                        if( rowA!=rowB || colA!=colB )
+                            System.out.println("Invalid matrix size for operator! Please re-enter!");
+                        else
+                        {
+                            A.get_input('A',rowA,colA);
+                            B.get_input('B',rowB,colB);
+                            break;
+                        }
+                    }
+                    while(true);
                     
                     System.out.println("=======Result=======");
                     A.DisplayMatrix();
                     System.out.println("+");
                     B.DisplayMatrix();
                     System.out.println("=");
-                    Matrix.matrixAddition(A, B).DisplayMatrix();
+                    Matrix.addMatrix(A, B).DisplayMatrix();
                     break;
-					*/
-					
-				case 2:
-					System.out.println("\n-------- Matrix Subtraction --------");
-					System.out.println("\n Enter dimensions of matrix A: ");
-					rowA = Utilities.inputInt("Number of rows: ", 1, Integer.MAX_VALUE);
-					colA = Utilities.inputInt("Number of columns: ", 1, Integer.MAX_VALUE);
-					A.get_input('A', rowA, colA);
-					
-					System.out.println("\n Enter dimensions of matrix B: ");
-					rowB = Utilities.inputInt("Number of rows: ", 1, Integer.MAX_VALUE);
-					colB = Utilities.inputInt("Number of columns: ", 1, Integer.MAX_VALUE);
-					B.get_input('B', rowB, colB);
-					
-					System.out.println("\n");
-					A.DisplayMatrix();
-					System.out.println(" - ");
-					B.DisplayMatrix();
-					System.out.println(" = ");
-					Matrix.subtractMatrix(A, B).DisplayMatrix();
-					break;
 					
 				case 3:
+					/*
 					System.out.println("\n-------- Matrix Multiplication (dot product) --------");
 					System.out.println("\n Enter dimensions of matrix A: ");
 					rowA = Utilities.inputInt("Number of rows: ", 1, Integer.MAX_VALUE);
@@ -105,6 +112,35 @@ public class Menu {
 					System.out.println(" = ");
 					Matrix.dotProduct(A, B).DisplayMatrix();
 					break;
+					*/
+					
+					
+                    rowA=Utilities.inputInt("Enter Row Matrix 1: ",1,Integer.MAX_VALUE);
+                    colA=Utilities.inputInt("Enter Column Matrix 1: ",1,Integer.MAX_VALUE);
+                       
+                    do
+                    {      
+                        rowB=Utilities.inputInt("Enter Row Matrix 2: ",1,Integer.MAX_VALUE);   
+                        colB=Utilities.inputInt("Enter Column Matrix 2: ",1,Integer.MAX_VALUE);
+                        if( colA!=rowB )
+                            System.out.println("Invalid matrix size for operator! Please re-enter!");
+                        else
+                        {
+                            A.get_input('A',rowA,colA);
+                            B.get_input('B',rowB,colB);
+                            break;
+                        }
+                    }
+                    while(true);
+                    
+                    ///Calc
+                    System.out.println("=======Result=======");
+                    A.DisplayMatrix();
+                    System.out.println("*");
+                    B.DisplayMatrix();
+                    System.out.println("=");
+                    Matrix.dotProduct(A, B).DisplayMatrix();
+                    break;
 			}
 		}while(choice != 4);
 		

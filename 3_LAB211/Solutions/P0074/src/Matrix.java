@@ -61,75 +61,56 @@ public class Matrix {
 	}
 
 	public static Matrix addMatrix(Matrix A, Matrix B){
-		// two matrix have to have same dimension to be added
-		if (A.getRow() == B.getRow() && A.getColumn() == B.getColumn()){
-
-			int r = A.getRow(), c = A.getColumn();
+		int r = A.getRow(), c = A.getColumn();
 
 			// cannot use array's operations on Matrix so we need to 
 			// operate on these Matrix's array representations
-			int[][] mA = A.getMatrix(), mB = B.getMatrix(), temp = new int[r][c];
+		int[][] mA = A.getMatrix(), mB = B.getMatrix(), temp = new int[r][c];
 
-			for (int i = 0; i < r; i++){
-				for (int j = 0; j < c; j++){
-					temp[i][j] = mA[i][j] + mB[i][j];
-				}
+		for (int i = 0; i < r; i++){
+			for (int j = 0; j < c; j++){
+				temp[i][j] = mA[i][j] + mB[i][j];
 			}
+		}
 
 			// convert the temp array back to Matrix type
-			Matrix C = new Matrix(r, c, temp);
-			return C;
-		}else{
-			System.err.println("Two matrix must have the same dimension");
-			return null;
-		}
+		Matrix C = new Matrix(r, c, temp);
+		return C;
 	}
     
 
 	public static Matrix subtractMatrix(Matrix A, Matrix B){
-		// two matrix have to have same dimension to be added
-		if (A.getRow() == B.getRow() && A.getColumn() == B.getColumn()){
-
-			int r = A.getRow(), c = A.getColumn();
+		int r = A.getRow(), c = A.getColumn();
 
 			// cannot use array's operations on Matrix so we need to 
 			// operate on these Matrix's array representations
-			int[][] mA = A.getMatrix(), mB = B.getMatrix(), temp = new int[r][c];
+		int[][] mA = A.getMatrix(), mB = B.getMatrix(), temp = new int[r][c];
 
-			for (int i = 0; i < r; i++){
-				for (int j = 0; j < c; j++){
-					temp[i][j] = mA[i][j] - mB[i][j];
-				}
+		for (int i = 0; i < r; i++){
+			for (int j = 0; j < c; j++){
+				temp[i][j] = mA[i][j] - mB[i][j];
 			}
+		}
 
 			// convert the temp array back to Matrix type
-			Matrix C = new Matrix(r, c, temp);
-			return C;
-		}else{
-			System.err.println("Two matrix must have the same dimension");
-			return null;
-		}
+		Matrix C = new Matrix(r, c, temp);
+		return C;
 	}
 
 	public static Matrix dotProduct(Matrix A, Matrix B){
 		int r1 = A.getRow(), c1 = A.getColumn(), c2 = B.getColumn(), r2 = B.getRow();
+		int[][] product = new int[r1][c2], 
+		firstMatrix = A.getMatrix(), secondMatrix = B.getMatrix();
 
-		if (c1 == r2){
-			int[][] product = new int[r1][c2], 
-			firstMatrix = A.getMatrix(), secondMatrix = B.getMatrix();
-
-			for(int i = 0; i < r1; i++) {
-				for (int j = 0; j < c2; j++) {
-					for (int k = 0; k < c1; k++) {
-						product[i][j] += firstMatrix[i][k] * secondMatrix[k][j];
-					}
+		for(int i = 0; i < r1; i++) {
+			for (int j = 0; j < c2; j++) {
+				for (int k = 0; k < c1; k++) {
+					product[i][j] += firstMatrix[i][k] * secondMatrix[k][j];
 				}
 			}
-			Matrix C = new Matrix(r1, c2, product);
-			return C;
-		}else{
-			throw new ArithmeticException();
 		}
+		Matrix C = new Matrix(r1, c2, product);
+		return C;
 	}
 	
 }
