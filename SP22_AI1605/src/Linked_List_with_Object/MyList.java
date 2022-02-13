@@ -19,6 +19,7 @@ public class MyList {
 		tail = null;
 	}
 
+
 	void addFirst(Person x){
 		// create a Node contain information x
 		Node p = new Node(x);
@@ -30,6 +31,16 @@ public class MyList {
 			p.next = head;
 			head = p;
 		}
+	}
+
+	public int size(){
+		int size = 0;
+		Node p = head;
+		while(p != null){
+			size += 1;
+			p = p.next;
+		}
+		return size;
 	}
 	
 	void traverse(Node p){
@@ -165,6 +176,21 @@ public class MyList {
 		// delete the node
 		prev.next = run.next;
 
+	}
+
+	public Person get(int i){
+		Node run = head;
+		int count = 0;
+		while(run != null && count != i){
+			count += 1;
+			run = run.next;
+		}
+
+		if (run == null){
+			return null;
+		}
+
+		return run.info;
 	}
 
 	Node search(Person x){
