@@ -1,3 +1,0 @@
-Linkedlist.LinkedList
-Linkedlist.LinkedList$Node
-Linkedlist.linkedlistGeeksforGeeks

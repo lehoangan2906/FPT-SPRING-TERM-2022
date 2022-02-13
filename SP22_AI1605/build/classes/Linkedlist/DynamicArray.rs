@@ -1,2 +1,0 @@
-Linkedlist.Array
-Linkedlist.DynamicArray
