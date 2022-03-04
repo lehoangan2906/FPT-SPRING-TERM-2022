@@ -1,0 +1,30 @@
+package MyGraph;
+
+/*
+    author: Tourist
+*/
+
+public class Graph{
+    
+    int[][] a;  // adjacency matrix
+    int n;      // total vertex
+    char[] vertex = "ABCDEFGHIJKLMN".tocharArray();
+
+
+    // constructor
+
+    public Graph(){
+        int[][] b = {
+     //A  B  C  D  E  F  G  H  I
+      {0, 1, 1, 1, 0, 0, 0, 0, 0}, //A
+      {1, 0, 1, 1, 0, 0, 0, 0, 0}, //B 
+      {1, 1, 0, 1, 0, 0, 0, 0, 0}, //C
+      {1, 1, 1, 0, 0, 1, 0, 0, 0}, //D
+      {0, 0, 0, 0, 0, 1, 0, 0, 0}, //E
+      {0, 0, 0, 1, 1, 0, 0, 0, 0}, //F
+      {0, 0, 0, 0, 0, 0, 0, 1, 1}, //G
+      {0, 0, 0, 0, 0, 0, 1, 0, 0}, //H
+      {0, 0, 0, 0, 0, 0, 1, 0, 0}  //I
+     };
+    }
+}
