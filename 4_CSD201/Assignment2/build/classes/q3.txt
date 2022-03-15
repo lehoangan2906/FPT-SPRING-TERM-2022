@@ -1,0 +1,8 @@
+(A6, Mama mia ,4.0)
+(A7, In a Persian Market ,4.5)
+(A3, Colors of the wind ,4.0)
+(A9, Sang pour sang ,4.8)
+(A5, Tomorrow we fight ,4.5)
+(A1, Paradise ,4.5)
+(A8, Memories ,4.7)
+(A4, Hello ,3.9)
